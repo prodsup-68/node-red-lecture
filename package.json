@@ -1,0 +1,22 @@
+{
+  "name": "node-red-lecture",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node-red -u ./local -p 1880"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.2",
+  "dependencies": {
+    "@flowfuse/node-red-dashboard": "^1.29.0",
+    "bcryptjs": "^3.0.3",
+    "node-red": "^4.1.1",
+    "node-red-contrib-image-tools": "^2.1.1",
+    "node-red-contrib-influxdb": "^0.7.0",
+    "node-red-contrib-telegrambot": "^17.0.3"
+  }
+}
