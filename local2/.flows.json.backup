@@ -50,6 +50,95 @@
         "rejectUnauthorized": true
     },
     {
+        "id": "a8515e1266907c48",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "43ae1f9cb356ac64",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "cf5cfcf2928a6d66",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "a8515e1266907c48",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "43ae1f9cb356ac64",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "789fb697b15bb117",
+        "type": "ui-group",
+        "name": "Group 1",
+        "page": "cf5cfcf2928a6d66",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false,
+        "groupType": "default"
+    },
+    {
         "id": "1912c01745ae9037",
         "type": "inject",
         "z": "0b5ebc39e8aaa79e",
@@ -323,8 +412,8 @@
         "precisionV18FluxV20": "ms",
         "retentionPolicyV18Flux": "",
         "org": "Dev Team",
-        "bucket": "prodsup_demp2",
-        "x": 690,
+        "bucket": "my_bucket",
+        "x": 730,
         "y": 220,
         "wires": []
     },
@@ -349,7 +438,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 280,
+        "x": 300,
         "y": 220,
         "wires": [
             [
@@ -361,7 +450,7 @@
         "id": "f8c98344a38b5dfd",
         "type": "function",
         "z": "0b5ebc39e8aaa79e",
-        "name": "function 4",
+        "name": "Construct Payload",
         "func": "const field = {\n        counter: msg.payload,\n}\nconst tag = {\n        tag_1: \"TAG_1\",\n        tag_2: \"TAG_2\"\n}\nmsg.payload = [field, tag];\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -369,12 +458,124 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 480,
+        "x": 510,
         "y": 220,
         "wires": [
             [
                 "f0da948fc4d82f75"
             ]
+        ]
+    },
+    {
+        "id": "a0a8b58782dce853",
+        "type": "influxdb in",
+        "z": "0b5ebc39e8aaa79e",
+        "influxdb": "17c9d91241037ccf",
+        "name": "Counter DB",
+        "query": "from(bucket: \"my_bucket\")\n    |> range(start: -2h)\n    |> filter(fn: (r) => r._measurement == \"counter\")\n    |> group()                      // remove grouping so you get a single table\n    |> sort(columns: [\"_time\"], desc: true)\n    |> limit(n: 5)",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "Dev Team",
+        "x": 490,
+        "y": 300,
+        "wires": [
+            [
+                "117ae1d6967b22aa",
+                "11974db2d0c040a4"
+            ]
+        ]
+    },
+    {
+        "id": "b19b2b7d1f31341b",
+        "type": "inject",
+        "z": "0b5ebc39e8aaa79e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 300,
+        "wires": [
+            [
+                "a0a8b58782dce853"
+            ]
+        ]
+    },
+    {
+        "id": "117ae1d6967b22aa",
+        "type": "function",
+        "z": "0b5ebc39e8aaa79e",
+        "name": "Extract Data",
+        "func": "const _payload = msg.payload;\n\nmsg.payload = _payload.map((d) => {\n    const _dt = new Date(d[\"_time\"]);\n    const dt = _dt.toLocaleString(); // e.g. \"11/30/2025, 9:37:46 AM\"\n    return {\n        \"Date/Time\": dt,\n        \"Tag_1\": d[\"tag_1\"],\n        \"Tag_2\": d[\"tag_2\"],\n        \"Count\": d[\"_value\"],\n    }\n})\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 300,
+        "wires": [
+            [
+                "1ee281b250d10ee0"
+            ]
+        ]
+    },
+    {
+        "id": "11974db2d0c040a4",
+        "type": "debug",
+        "z": "0b5ebc39e8aaa79e",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "1ee281b250d10ee0",
+        "type": "ui-table",
+        "z": "0b5ebc39e8aaa79e",
+        "group": "789fb697b15bb117",
+        "name": "",
+        "label": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "maxrows": 0,
+        "passthru": false,
+        "autocols": true,
+        "showSearch": true,
+        "deselect": true,
+        "selectionType": "none",
+        "columns": [],
+        "mobileBreakpoint": "sm",
+        "mobileBreakpointType": "defaults",
+        "action": "replace",
+        "className": "",
+        "x": 870,
+        "y": 300,
+        "wires": [
+            []
         ]
     }
 ]
