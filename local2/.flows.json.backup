@@ -35,6 +35,21 @@
         "verboselogging": false
     },
     {
+        "id": "17c9d91241037ccf",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": 8086,
+        "protocol": "http",
+        "database": "database",
+        "name": "",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "https://us-east-1-1.aws.cloud2.influxdata.com",
+        "timeout": 10,
+        "rejectUnauthorized": true
+    },
+    {
         "id": "1912c01745ae9037",
         "type": "inject",
         "z": "0b5ebc39e8aaa79e",
@@ -272,7 +287,7 @@
         "senderr": false,
         "headers": [],
         "x": 570,
-        "y": 4160,
+        "y": 4200,
         "wires": [
             [
                 "7e25cb23b50bf56f"
@@ -294,5 +309,72 @@
         "x": 800,
         "y": 4160,
         "wires": []
+    },
+    {
+        "id": "f0da948fc4d82f75",
+        "type": "influxdb out",
+        "z": "0b5ebc39e8aaa79e",
+        "influxdb": "17c9d91241037ccf",
+        "name": "Counter DB",
+        "measurement": "counter",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "Dev Team",
+        "bucket": "prodsup_demp2",
+        "x": 690,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "19f4dc42e6f0c450",
+        "type": "inject",
+        "z": "0b5ebc39e8aaa79e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 220,
+        "wires": [
+            [
+                "f8c98344a38b5dfd"
+            ]
+        ]
+    },
+    {
+        "id": "f8c98344a38b5dfd",
+        "type": "function",
+        "z": "0b5ebc39e8aaa79e",
+        "name": "function 4",
+        "func": "const field = {\n        counter: msg.payload,\n}\nconst tag = {\n        tag_1: \"TAG_1\",\n        tag_2: \"TAG_2\"\n}\nmsg.payload = [field, tag];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 220,
+        "wires": [
+            [
+                "f0da948fc4d82f75"
+            ]
+        ]
     }
 ]

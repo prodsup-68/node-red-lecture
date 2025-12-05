@@ -27,12 +27,6 @@ importers:
         specifier: ^17.0.3
         version: 17.0.3(request@2.88.2)
 
-  local:
-    dependencies:
-      '@sumit_shinde_84/node-red-dashboard-2-ui-webcam':
-        specifier: ^1.1.2
-        version: 1.1.2
-
 packages:
 
   '@babel/helper-string-parser@7.27.1':
@@ -369,10 +363,6 @@ packages:
   '@socket.io/component-emitter@3.1.2':
     resolution: {integrity: sha512-9BCxFwvbGg/RsZK9tjXd8s4UcwR0MWeFQ1XEKIQVVvAGJyINdrqKMcTRyLoK8Rse1GjzLV9cwjWV1olXRWEXVA==}
 
-  '@sumit_shinde_84/node-red-dashboard-2-ui-webcam@1.1.2':
-    resolution: {integrity: sha512-kH+TwOeB0W3YTa4m3MOR5p6Ab/mPBJLu3cUKfKShCk7/pRfLpeCsiW+U3Fzkc9x90gg0858anFTj/fYdfUb/xQ==}
-    engines: {node: '>=14'}
-
   '@szmarczak/http-timer@5.0.1':
     resolution: {integrity: sha512-+PmQX0PiAYPMeVYe237LJAYvOMYW1j2rH5YROyS3b4CTVJum34HfRvKvAzozHAQG0TnHNdUfY9nCeUyRAs//cw==}
     engines: {node: '>=14.16'}
@@ -412,9 +402,6 @@ packages:
 
   '@vue/compiler-ssr@3.5.25':
     resolution: {integrity: sha512-ritPSKLBcParnsKYi+GNtbdbrIE1mtuFEJ4U1sWeuOMlIziK5GtOL85t5RhsNy4uWIXPgk+OUdpnXiTdzn8o3A==}
-
-  '@vue/devtools-api@6.6.4':
-    resolution: {integrity: sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==}
 
   '@vue/reactivity@3.5.25':
     resolution: {integrity: sha512-5xfAypCQepv4Jog1U4zn8cZIcbKKFka3AgWHEFQeK65OW+Ys4XybP6z2kKgws4YB43KGpqp5D/K3go2UPPunLA==}
@@ -1503,9 +1490,6 @@ packages:
     resolution: {integrity: sha512-gqXddjPqQ6G40VdnI6T6yObEC+pDNvyP95wdQhkWkg7crHH3km5qP1FsOXEkzEQwnz6gz5qGTn1c2Y52wP3OyQ==}
     engines: {'0': node >=0.6.0}
 
-  jsqr@1.4.0:
-    resolution: {integrity: sha512-dxLob7q65Xg2DvstYkRpkYtmKm2sPJ9oFhrhmudT1dZvNFFTlroai3AWSpLey/w5vMcLBXRgOJsbXpdN9HzU/A==}
-
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
 
@@ -2275,11 +2259,6 @@ packages:
       typescript:
         optional: true
 
-  vuex@4.1.0:
-    resolution: {integrity: sha512-hmV6UerDrPcgbSy9ORAtNXDr9M4wlNP4pEFKye4ujJF8oqgFFuxDCdOLS3eNoRTtq5O3hoBDh9Doj1bQMYHRbQ==}
-    peerDependencies:
-      vue: ^3.2.0
-
   webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
 
@@ -2872,14 +2851,6 @@ snapshots:
 
   '@socket.io/component-emitter@3.1.2': {}
 
-  '@sumit_shinde_84/node-red-dashboard-2-ui-webcam@1.1.2':
-    dependencies:
-      jsqr: 1.4.0
-      vue: 3.5.25
-      vuex: 4.1.0(vue@3.5.25)
-    transitivePeerDependencies:
-      - typescript
-
   '@szmarczak/http-timer@5.0.1':
     dependencies:
       defer-to-connect: 2.0.1
@@ -2940,8 +2911,6 @@ snapshots:
     dependencies:
       '@vue/compiler-dom': 3.5.25
       '@vue/shared': 3.5.25
-
-  '@vue/devtools-api@6.6.4': {}
 
   '@vue/reactivity@3.5.25':
     dependencies:
@@ -4260,8 +4229,6 @@ snapshots:
       json-schema: 0.4.0
       verror: 1.10.0
 
-  jsqr@1.4.0: {}
-
   keyv@4.5.4:
     dependencies:
       json-buffer: 3.0.1
@@ -5192,11 +5159,6 @@ snapshots:
       '@vue/runtime-dom': 3.5.25
       '@vue/server-renderer': 3.5.25(vue@3.5.25)
       '@vue/shared': 3.5.25
-
-  vuex@4.1.0(vue@3.5.25):
-    dependencies:
-      '@vue/devtools-api': 6.6.4
-      vue: 3.5.25
 
   webidl-conversions@3.0.1: {}
 
