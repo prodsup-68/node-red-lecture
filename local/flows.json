@@ -24,6 +24,14 @@
         "env": []
     },
     {
+        "id": "764aad342d8b8b28",
+        "type": "tab",
+        "label": "Telegram",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "5c9e88e1c9ecf3cb",
         "type": "ui-base",
         "name": "My Dashboard",
@@ -161,6 +169,33 @@
         "visible": "true",
         "disabled": "false",
         "groupType": "default"
+    },
+    {
+        "id": "9211183b872969bf",
+        "type": "telegram bot",
+        "botname": "Prodsup",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": 300,
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
     },
     {
         "id": "2def31a156b8255e",
@@ -779,6 +814,249 @@
             [
                 "407bfcb9bf8f3cd0"
             ]
+        ]
+    },
+    {
+        "id": "01732808f3b2c22e",
+        "type": "telegram sender",
+        "z": "764aad342d8b8b28",
+        "d": true,
+        "name": "",
+        "bot": "9211183b872969bf",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 670,
+        "y": 140,
+        "wires": [
+            [
+                "25f8da023a68daf6"
+            ]
+        ]
+    },
+    {
+        "id": "c3d55c11ccc553b8",
+        "type": "function",
+        "z": "764aad342d8b8b28",
+        "name": "Construct Message",
+        "func": "const data = {\nchatId: 6094132297,\ncontent: msg.payload,\ntype: \"message\"\n}\nmsg.payload = data\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 140,
+        "wires": [
+            [
+                "01732808f3b2c22e"
+            ]
+        ]
+    },
+    {
+        "id": "c2667bfe20d556f7",
+        "type": "inject",
+        "z": "764aad342d8b8b28",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 140,
+        "wires": [
+            [
+                "c3d55c11ccc553b8"
+            ]
+        ]
+    },
+    {
+        "id": "25f8da023a68daf6",
+        "type": "debug",
+        "z": "764aad342d8b8b28",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "a372ad40daaac5a8",
+        "type": "telegram receiver",
+        "z": "764aad342d8b8b28",
+        "d": true,
+        "name": "",
+        "bot": "9211183b872969bf",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "hasinput": false,
+        "inputs": 0,
+        "handleallupdates": false,
+        "x": 170,
+        "y": 300,
+        "wires": [
+            [
+                "ba814f8abbccb494"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "6fd326037b4a01d1",
+        "type": "debug",
+        "z": "764aad342d8b8b28",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "0cb7748109ec17cb",
+        "type": "switch",
+        "z": "764aad342d8b8b28",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ON",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "OFF",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 630,
+        "y": 300,
+        "wires": [
+            [
+                "6fd326037b4a01d1"
+            ],
+            [
+                "6fd326037b4a01d1"
+            ]
+        ]
+    },
+    {
+        "id": "ba814f8abbccb494",
+        "type": "function",
+        "z": "764aad342d8b8b28",
+        "name": "Extract Content",
+        "func": "const content = msg.payload?.content ?? \"\";\nmsg.payload = content;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 300,
+        "wires": [
+            [
+                "0cb7748109ec17cb"
+            ]
+        ]
+    },
+    {
+        "id": "511998eaf0a4664a",
+        "type": "inject",
+        "z": "764aad342d8b8b28",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 440,
+        "wires": [
+            [
+                "fc78c961953e4217"
+            ]
+        ]
+    },
+    {
+        "id": "fc78c961953e4217",
+        "type": "function",
+        "z": "764aad342d8b8b28",
+        "name": "Construct Payload",
+        "func": "// Input your info here\nconst TOKEN = \"7446515859:AAHLOYuiD3IWmVV6t_BiTZnIMew8uSEFO1o\";\nconst CHAT_ID = \"6094132297\";\n\n// Store incoming message\nconst value = msg.payload;\n\n// Construct \"JSON\"\nmsg.payload = {\n  chat_id: CHAT_ID,\n  text: value,\n  type: \"message\"\n};\nmsg.url = `https://api.telegram.org/bot${TOKEN}/sendMessage`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 440,
+        "wires": [
+            [
+                "706e9e1faef0c289"
+            ]
+        ]
+    },
+    {
+        "id": "706e9e1faef0c289",
+        "type": "http request",
+        "z": "764aad342d8b8b28",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 670,
+        "y": 440,
+        "wires": [
+            []
         ]
     }
 ]

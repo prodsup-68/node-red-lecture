@@ -779,25 +779,6 @@
             }
         }
     },
-    "@sumit_shinde_84/node-red-dashboard-2-ui-webcam": {
-        "name": "@sumit_shinde_84/node-red-dashboard-2-ui-webcam",
-        "version": "1.1.2",
-        "local": true,
-        "user": true,
-        "nodes": {
-            "ui-webcam": {
-                "name": "ui-webcam",
-                "types": [
-                    "ui-webcam"
-                ],
-                "enabled": true,
-                "local": true,
-                "user": false,
-                "module": "@sumit_shinde_84/node-red-dashboard-2-ui-webcam",
-                "file": "C:\\Users\\admin\\Coding\\prodsup-68\\node-red-lecture\\local\\node_modules\\@sumit_shinde_84\\node-red-dashboard-2-ui-webcam\\nodes\\ui-webcam.js"
-            }
-        }
-    },
     "node-red-contrib-image-tools": {
         "name": "node-red-contrib-image-tools",
         "version": "2.1.1",
@@ -856,6 +837,25 @@
                 "user": false,
                 "module": "node-red-contrib-image-tools",
                 "file": "C:\\Users\\admin\\Coding\\prodsup-68\\node-red-lecture\\node_modules\\node-red-contrib-image-tools\\app.js"
+            }
+        }
+    },
+    "@sumit_shinde_84/node-red-dashboard-2-ui-webcam": {
+        "name": "@sumit_shinde_84/node-red-dashboard-2-ui-webcam",
+        "version": "1.1.2",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "ui-webcam": {
+                "name": "ui-webcam",
+                "types": [
+                    "ui-webcam"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "@sumit_shinde_84/node-red-dashboard-2-ui-webcam",
+                "file": "C:\\Users\\admin\\Coding\\prodsup-68\\node-red-lecture\\local\\node_modules\\@sumit_shinde_84\\node-red-dashboard-2-ui-webcam\\nodes\\ui-webcam.js"
             }
         }
     }

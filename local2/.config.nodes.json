@@ -427,6 +427,25 @@
             }
         }
     },
+    "@sumit_shinde_84/node-red-dashboard-2-ui-webcam": {
+        "name": "@sumit_shinde_84/node-red-dashboard-2-ui-webcam",
+        "version": "1.1.2",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "ui-webcam": {
+                "name": "ui-webcam",
+                "types": [
+                    "ui-webcam"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "@sumit_shinde_84/node-red-dashboard-2-ui-webcam",
+                "file": "C:\\Users\\admin\\Coding\\prodsup-68\\node-red-lecture\\node_modules\\.pnpm\\node_modules\\@sumit_shinde_84\\node-red-dashboard-2-ui-webcam\\nodes\\ui-webcam.js"
+            }
+        }
+    },
     "@flowfuse/node-red-dashboard": {
         "name": "@flowfuse/node-red-dashboard",
         "version": "1.29.0",
@@ -732,53 +751,6 @@
             }
         }
     },
-    "node-red-contrib-influxdb": {
-        "name": "node-red-contrib-influxdb",
-        "version": "0.7.0",
-        "local": false,
-        "user": false,
-        "nodes": {
-            "influxdb": {
-                "name": "influxdb",
-                "types": [
-                    "influxdb",
-                    "influxdb out",
-                    "influxdb batch",
-                    "influxdb in"
-                ],
-                "enabled": true,
-                "local": false,
-                "user": false,
-                "module": "node-red-contrib-influxdb",
-                "file": "C:\\Users\\admin\\Coding\\prodsup-68\\node-red-lecture\\node_modules\\node-red-contrib-influxdb\\influxdb.js"
-            }
-        }
-    },
-    "node-red-contrib-telegrambot": {
-        "name": "node-red-contrib-telegrambot",
-        "version": "17.0.3",
-        "local": false,
-        "user": false,
-        "nodes": {
-            "telegrambot": {
-                "name": "telegrambot",
-                "types": [
-                    "telegram bot",
-                    "telegram receiver",
-                    "telegram command",
-                    "telegram event",
-                    "telegram sender",
-                    "telegram reply",
-                    "telegram control"
-                ],
-                "enabled": true,
-                "local": false,
-                "user": false,
-                "module": "node-red-contrib-telegrambot",
-                "file": "C:\\Users\\admin\\Coding\\prodsup-68\\node-red-lecture\\node_modules\\node-red-contrib-telegrambot\\telegrambot\\99-telegrambot.js"
-            }
-        }
-    },
     "node-red-contrib-image-tools": {
         "name": "node-red-contrib-image-tools",
         "version": "2.1.1",
@@ -837,6 +809,53 @@
                 "user": false,
                 "module": "node-red-contrib-image-tools",
                 "file": "C:\\Users\\admin\\Coding\\prodsup-68\\node-red-lecture\\node_modules\\node-red-contrib-image-tools\\app.js"
+            }
+        }
+    },
+    "node-red-contrib-influxdb": {
+        "name": "node-red-contrib-influxdb",
+        "version": "0.7.0",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "influxdb": {
+                "name": "influxdb",
+                "types": [
+                    "influxdb",
+                    "influxdb out",
+                    "influxdb batch",
+                    "influxdb in"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-influxdb",
+                "file": "C:\\Users\\admin\\Coding\\prodsup-68\\node-red-lecture\\node_modules\\node-red-contrib-influxdb\\influxdb.js"
+            }
+        }
+    },
+    "node-red-contrib-telegrambot": {
+        "name": "node-red-contrib-telegrambot",
+        "version": "17.0.3",
+        "local": false,
+        "user": false,
+        "nodes": {
+            "telegrambot": {
+                "name": "telegrambot",
+                "types": [
+                    "telegram bot",
+                    "telegram receiver",
+                    "telegram command",
+                    "telegram event",
+                    "telegram sender",
+                    "telegram reply",
+                    "telegram control"
+                ],
+                "enabled": true,
+                "local": false,
+                "user": false,
+                "module": "node-red-contrib-telegrambot",
+                "file": "C:\\Users\\admin\\Coding\\prodsup-68\\node-red-lecture\\node_modules\\node-red-contrib-telegrambot\\telegrambot\\99-telegrambot.js"
             }
         }
     }
