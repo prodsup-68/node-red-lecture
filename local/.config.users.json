@@ -15,6 +15,9 @@
             },
             "tours": {
                 "welcome": "4.1.1"
+            },
+            "context": {
+                "flowRefresh": true
             }
         },
         "menu-menu-item-sidebar": true

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node-red -u ./local -p 1880",
-    "start2": "node-red -u ./local2 -p 1880"
+    "start2": "node-red -u ./local2 -p 1881"
   },
   "keywords": [],
   "author": "",
