@@ -1,5 +1,13 @@
 [
     {
+        "id": "42cb1e78218e6487",
+        "type": "tab",
+        "label": "Context",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "7546b976ca9bc699",
         "type": "tab",
         "label": "Dashboard Display",
@@ -196,6 +204,393 @@
         "useselfsignedcertificate": false,
         "sslterminated": false,
         "verboselogging": false
+    },
+    {
+        "id": "319fa7a0168fc913",
+        "type": "inject",
+        "z": "42cb1e78218e6487",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 100,
+        "wires": [
+            [
+                "a13080c3335bb017"
+            ]
+        ]
+    },
+    {
+        "id": "a13080c3335bb017",
+        "type": "function",
+        "z": "42cb1e78218e6487",
+        "name": "Random Data",
+        "func": "msg.payload = Math.random();\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 100,
+        "wires": [
+            [
+                "6d586997908b5966"
+            ]
+        ]
+    },
+    {
+        "id": "6d586997908b5966",
+        "type": "change",
+        "z": "42cb1e78218e6487",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "value",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c2cedf1259179ede",
+        "type": "inject",
+        "z": "42cb1e78218e6487",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "value",
+        "payloadType": "flow",
+        "x": 200,
+        "y": 440,
+        "wires": [
+            [
+                "8863e1d0c6e3121e"
+            ]
+        ]
+    },
+    {
+        "id": "8863e1d0c6e3121e",
+        "type": "ui-text",
+        "z": "42cb1e78218e6487",
+        "group": "901bf39283e5217d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 410,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "864e391293e62595",
+        "type": "ui-text",
+        "z": "42cb1e78218e6487",
+        "group": "901bf39283e5217d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "value",
+        "valueType": "flow",
+        "x": 410,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "78d7239d9fbb867a",
+        "type": "inject",
+        "z": "42cb1e78218e6487",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 580,
+        "wires": [
+            [
+                "864e391293e62595"
+            ]
+        ]
+    },
+    {
+        "id": "0a647e7eae3552b9",
+        "type": "inject",
+        "z": "42cb1e78218e6487",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 1120,
+        "wires": [
+            [
+                "bb2ace15ffdab65a"
+            ]
+        ]
+    },
+    {
+        "id": "bb2ace15ffdab65a",
+        "type": "change",
+        "z": "42cb1e78218e6487",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "value",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "414e5f03b71aef5f",
+        "type": "function",
+        "z": "42cb1e78218e6487",
+        "name": "Set Value",
+        "func": "flow.set(\"value\", msg.payload);\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a7e9a79d0d03f55a",
+        "type": "inject",
+        "z": "42cb1e78218e6487",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 820,
+        "wires": [
+            [
+                "02c24d7a4ec20555"
+            ]
+        ]
+    },
+    {
+        "id": "02c24d7a4ec20555",
+        "type": "function",
+        "z": "42cb1e78218e6487",
+        "name": "Random Data",
+        "func": "msg.payload = Math.random();\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 820,
+        "wires": [
+            [
+                "414e5f03b71aef5f"
+            ]
+        ]
+    },
+    {
+        "id": "5c8a4f64e2d7d390",
+        "type": "inject",
+        "z": "42cb1e78218e6487",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 940,
+        "wires": [
+            [
+                "233c8abf1e07b2f0"
+            ]
+        ]
+    },
+    {
+        "id": "233c8abf1e07b2f0",
+        "type": "function",
+        "z": "42cb1e78218e6487",
+        "name": "Get Context",
+        "func": "const value = flow.get(\"value\") ?? 0;\nmsg.payload = value;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 940,
+        "wires": [
+            [
+                "59b7a02b8f7e989c"
+            ]
+        ]
+    },
+    {
+        "id": "59b7a02b8f7e989c",
+        "type": "debug",
+        "z": "42cb1e78218e6487",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "249fa7f6fd499a6d",
+        "type": "comment",
+        "z": "42cb1e78218e6487",
+        "name": "Inject Context Data",
+        "info": "",
+        "x": 210,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "8c36ab3d910f0952",
+        "type": "comment",
+        "z": "42cb1e78218e6487",
+        "name": "Update Context Data",
+        "info": "",
+        "x": 220,
+        "y": 520,
+        "wires": []
     },
     {
         "id": "2def31a156b8255e",
@@ -410,7 +805,7 @@
         "topic": "",
         "payload": "[]",
         "payloadType": "json",
-        "x": 370,
+        "x": 350,
         "y": 60,
         "wires": [
             [

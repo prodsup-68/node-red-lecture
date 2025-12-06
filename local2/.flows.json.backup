@@ -1,6 +1,6 @@
 [
     {
-        "id": "0b5ebc39e8aaa79e",
+        "id": "928e8df5cd17bf46",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -8,49 +8,7 @@
         "env": []
     },
     {
-        "id": "8c9dfba622c8eaf7",
-        "type": "telegram bot",
-        "botname": "Prodsup 68",
-        "usernames": "",
-        "chatids": "",
-        "baseapiurl": "",
-        "testenvironment": false,
-        "updatemode": "polling",
-        "pollinterval": 300,
-        "usesocks": false,
-        "sockshost": "",
-        "socksprotocol": "socks5",
-        "socksport": 6667,
-        "socksusername": "anonymous",
-        "sockspassword": "",
-        "bothost": "",
-        "botpath": "",
-        "localbothost": "0.0.0.0",
-        "localbotport": 8443,
-        "publicbotport": 8443,
-        "privatekey": "",
-        "certificate": "",
-        "useselfsignedcertificate": false,
-        "sslterminated": false,
-        "verboselogging": false
-    },
-    {
-        "id": "17c9d91241037ccf",
-        "type": "influxdb",
-        "hostname": "127.0.0.1",
-        "port": 8086,
-        "protocol": "http",
-        "database": "database",
-        "name": "",
-        "usetls": false,
-        "tls": "",
-        "influxdbVersion": "2.0",
-        "url": "https://us-east-1-1.aws.cloud2.influxdata.com",
-        "timeout": 10,
-        "rejectUnauthorized": true
-    },
-    {
-        "id": "a8515e1266907c48",
+        "id": "28f0edc04a87b680",
         "type": "ui-base",
         "name": "My Dashboard",
         "path": "/dashboard",
@@ -70,7 +28,7 @@
         "allowInstall": false
     },
     {
-        "id": "43ae1f9cb356ac64",
+        "id": "752c7d41fed1d2a7",
         "type": "ui-theme",
         "name": "Default Theme",
         "colors": {
@@ -89,14 +47,14 @@
         }
     },
     {
-        "id": "cf5cfcf2928a6d66",
+        "id": "d2b0ce72cfbb438c",
         "type": "ui-page",
         "name": "Page 1",
-        "ui": "a8515e1266907c48",
+        "ui": "28f0edc04a87b680",
         "path": "/page1",
         "icon": "home",
         "layout": "grid",
-        "theme": "43ae1f9cb356ac64",
+        "theme": "752c7d41fed1d2a7",
         "breakpoints": [
             {
                 "name": "Default",
@@ -125,10 +83,10 @@
         "disabled": "false"
     },
     {
-        "id": "789fb697b15bb117",
+        "id": "1cfb7fc944aeccea",
         "type": "ui-group",
         "name": "Group 1",
-        "page": "cf5cfcf2928a6d66",
+        "page": "d2b0ce72cfbb438c",
         "width": 6,
         "height": 1,
         "order": 1,
@@ -139,9 +97,10 @@
         "groupType": "default"
     },
     {
-        "id": "1912c01745ae9037",
+        "id": "411c4e7c76cc5f22",
         "type": "inject",
-        "z": "0b5ebc39e8aaa79e",
+        "z": "928e8df5cd17bf46",
+        "d": true,
         "name": "",
         "props": [
             {
@@ -152,428 +111,292 @@
                 "vt": "str"
             }
         ],
-        "repeat": "",
+        "repeat": "1",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "5555",
-        "payloadType": "num",
-        "x": 130,
-        "y": 3940,
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 120,
         "wires": [
             [
-                "c8cacf7dcbcd5297"
+                "32134bcc508fdc65"
             ]
         ]
     },
     {
-        "id": "c8cacf7dcbcd5297",
+        "id": "32134bcc508fdc65",
         "type": "function",
-        "z": "0b5ebc39e8aaa79e",
+        "z": "928e8df5cd17bf46",
+        "d": true,
         "name": "function 1",
-        "func": "const CHAT_ID = 6094132297; // Your chat ID here\nconst data = {\n  chatId: CHAT_ID,\n  content: msg.payload,\n  type: \"message\",\n};\nmsg.payload = data;\nreturn msg;",
+        "func": "msg.payload = Math.random();\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 340,
-        "y": 3940,
+        "x": 420,
+        "y": 120,
         "wires": [
             [
-                "425a1609b21c71d3"
+                "d0db4a36032f54d9",
+                "2079037710e75a8a"
             ]
         ]
     },
     {
-        "id": "425a1609b21c71d3",
-        "type": "telegram sender",
-        "z": "0b5ebc39e8aaa79e",
+        "id": "d0db4a36032f54d9",
+        "type": "change",
+        "z": "928e8df5cd17bf46",
         "d": true,
         "name": "",
-        "bot": "8c9dfba622c8eaf7",
-        "haserroroutput": false,
-        "outputs": 1,
-        "x": 570,
-        "y": 3940,
+        "rules": [
+            {
+                "t": "set",
+                "p": "value",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 120,
         "wires": [
-            [
-                "2b2d78268ef0fa95"
-            ]
-        ]
-    },
-    {
-        "id": "2b2d78268ef0fa95",
-        "type": "debug",
-        "z": "0b5ebc39e8aaa79e",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 800,
-        "y": 3940,
-        "wires": []
-    },
-    {
-        "id": "557e5c3033dd6489",
-        "type": "telegram receiver",
-        "z": "0b5ebc39e8aaa79e",
-        "d": true,
-        "name": "",
-        "bot": "8c9dfba622c8eaf7",
-        "saveDataDir": "",
-        "filterCommands": false,
-        "hasinput": false,
-        "inputs": 0,
-        "handleallupdates": false,
-        "x": 130,
-        "y": 4060,
-        "wires": [
-            [
-                "fb81b713b5c9bc9c"
-            ],
             []
         ]
     },
     {
-        "id": "64c229fcc75f6baf",
-        "type": "debug",
-        "z": "0b5ebc39e8aaa79e",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 820,
-        "y": 4060,
-        "wires": []
-    },
-    {
-        "id": "fb81b713b5c9bc9c",
-        "type": "function",
-        "z": "0b5ebc39e8aaa79e",
-        "name": "function 2",
-        "func": "const content = msg.payload?.content ?? \"\";\nmsg.payload = content;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 360,
-        "y": 4060,
-        "wires": [
-            [
-                "73c7384895119276"
-            ]
-        ]
-    },
-    {
-        "id": "73c7384895119276",
-        "type": "switch",
-        "z": "0b5ebc39e8aaa79e",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "ON",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "OFF",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 530,
-        "y": 4060,
-        "wires": [
-            [
-                "64c229fcc75f6baf"
-            ],
-            [
-                "64c229fcc75f6baf"
-            ]
-        ]
-    },
-    {
-        "id": "484d0aa25a514eee",
-        "type": "inject",
-        "z": "0b5ebc39e8aaa79e",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 120,
-        "y": 4160,
-        "wires": [
-            [
-                "a7f6820f12bec332"
-            ]
-        ]
-    },
-    {
-        "id": "a7f6820f12bec332",
-        "type": "function",
-        "z": "0b5ebc39e8aaa79e",
-        "name": "function 3",
-        "func": "// Input your info here\nconst TOKEN = \"8409303599:AAGzMkClW8CUqBFxyfepG1koYAmB6h0LR1k\";\nconst CHAT_ID = \"6094132297\";\n\n// Store incoming message\nconst value = msg.payload;\n\n// Construct \"JSON\"\nmsg.payload = {\n  chat_id: CHAT_ID,\n  text: value,\n  type: \"message\",\n};\nmsg.url = `https://api.telegram.org/bot${TOKEN}/sendMessage`;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 4160,
-        "wires": [
-            [
-                "d9686500177c8a75"
-            ]
-        ]
-    },
-    {
-        "id": "d9686500177c8a75",
-        "type": "http request",
-        "z": "0b5ebc39e8aaa79e",
-        "name": "",
-        "method": "POST",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 570,
-        "y": 4200,
-        "wires": [
-            [
-                "7e25cb23b50bf56f"
-            ]
-        ]
-    },
-    {
-        "id": "7e25cb23b50bf56f",
-        "type": "debug",
-        "z": "0b5ebc39e8aaa79e",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 800,
-        "y": 4160,
-        "wires": []
-    },
-    {
-        "id": "f0da948fc4d82f75",
-        "type": "influxdb out",
-        "z": "0b5ebc39e8aaa79e",
-        "influxdb": "17c9d91241037ccf",
-        "name": "Counter DB",
-        "measurement": "counter",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "Dev Team",
-        "bucket": "my_bucket",
-        "x": 730,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "19f4dc42e6f0c450",
-        "type": "inject",
-        "z": "0b5ebc39e8aaa79e",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 300,
-        "y": 220,
-        "wires": [
-            [
-                "f8c98344a38b5dfd"
-            ]
-        ]
-    },
-    {
-        "id": "f8c98344a38b5dfd",
-        "type": "function",
-        "z": "0b5ebc39e8aaa79e",
-        "name": "Construct Payload",
-        "func": "const field = {\n        counter: msg.payload,\n}\nconst tag = {\n        tag_1: \"TAG_1\",\n        tag_2: \"TAG_2\"\n}\nmsg.payload = [field, tag];\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 510,
-        "y": 220,
-        "wires": [
-            [
-                "f0da948fc4d82f75"
-            ]
-        ]
-    },
-    {
-        "id": "a0a8b58782dce853",
-        "type": "influxdb in",
-        "z": "0b5ebc39e8aaa79e",
-        "influxdb": "17c9d91241037ccf",
-        "name": "Counter DB",
-        "query": "from(bucket: \"my_bucket\")\n    |> range(start: -2h)\n    |> filter(fn: (r) => r._measurement == \"counter\")\n    |> group()                      // remove grouping so you get a single table\n    |> sort(columns: [\"_time\"], desc: true)\n    |> limit(n: 5)",
-        "rawOutput": false,
-        "precision": "",
-        "retentionPolicy": "",
-        "org": "Dev Team",
-        "x": 490,
-        "y": 300,
-        "wires": [
-            [
-                "117ae1d6967b22aa",
-                "11974db2d0c040a4"
-            ]
-        ]
-    },
-    {
-        "id": "b19b2b7d1f31341b",
-        "type": "inject",
-        "z": "0b5ebc39e8aaa79e",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 280,
-        "y": 300,
-        "wires": [
-            [
-                "a0a8b58782dce853"
-            ]
-        ]
-    },
-    {
-        "id": "117ae1d6967b22aa",
-        "type": "function",
-        "z": "0b5ebc39e8aaa79e",
-        "name": "Extract Data",
-        "func": "const _payload = msg.payload;\n\nmsg.payload = _payload.map((d) => {\n    const _dt = new Date(d[\"_time\"]);\n    const dt = _dt.toLocaleString(); // e.g. \"11/30/2025, 9:37:46 AM\"\n    return {\n        \"Date/Time\": dt,\n        \"Tag_1\": d[\"tag_1\"],\n        \"Tag_2\": d[\"tag_2\"],\n        \"Count\": d[\"_value\"],\n    }\n})\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 710,
-        "y": 300,
-        "wires": [
-            [
-                "1ee281b250d10ee0"
-            ]
-        ]
-    },
-    {
-        "id": "11974db2d0c040a4",
-        "type": "debug",
-        "z": "0b5ebc39e8aaa79e",
-        "name": "debug 4",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "1ee281b250d10ee0",
-        "type": "ui-table",
-        "z": "0b5ebc39e8aaa79e",
-        "group": "789fb697b15bb117",
-        "name": "",
-        "label": "",
+        "id": "f98e9f43520bd198",
+        "type": "ui-text",
+        "z": "928e8df5cd17bf46",
+        "group": "1cfb7fc944aeccea",
         "order": 1,
         "width": 0,
         "height": 0,
-        "maxrows": 0,
-        "passthru": false,
-        "autocols": true,
-        "showSearch": true,
-        "deselect": true,
-        "selectionType": "none",
-        "columns": [],
-        "mobileBreakpoint": "sm",
-        "mobileBreakpointType": "defaults",
-        "action": "replace",
+        "name": "",
+        "label": "Payload",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
         "className": "",
-        "x": 870,
+        "value": "payload",
+        "valueType": "msg",
+        "x": 480,
         "y": 300,
+        "wires": []
+    },
+    {
+        "id": "3684278c974151dd",
+        "type": "inject",
+        "z": "928e8df5cd17bf46",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "value",
+        "payloadType": "flow",
+        "x": 220,
+        "y": 300,
+        "wires": [
+            [
+                "f98e9f43520bd198"
+            ]
+        ]
+    },
+    {
+        "id": "e683346cc7f0ccfa",
+        "type": "ui-text",
+        "z": "928e8df5cd17bf46",
+        "group": "1cfb7fc944aeccea",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Context",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "value",
+        "valueType": "flow",
+        "x": 440,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "82b8b998304ddefc",
+        "type": "inject",
+        "z": "928e8df5cd17bf46",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 460,
+        "wires": [
+            [
+                "e683346cc7f0ccfa"
+            ]
+        ]
+    },
+    {
+        "id": "2079037710e75a8a",
+        "type": "function",
+        "z": "928e8df5cd17bf46",
+        "name": "function 2",
+        "func": "flow.set(\"value\", msg.payload);\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e75d6fe70c651e96",
+        "type": "function",
+        "z": "928e8df5cd17bf46",
+        "name": "function 3",
+        "func": "const value = flow.get(\"value\") ?? 0;\nmsg.payload = value;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 380,
+        "wires": [
+            [
+                "f98e9f43520bd198"
+            ]
+        ]
+    },
+    {
+        "id": "1abaa30441ac719c",
+        "type": "inject",
+        "z": "928e8df5cd17bf46",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 380,
+        "wires": [
+            [
+                "e75d6fe70c651e96"
+            ]
+        ]
+    },
+    {
+        "id": "fc833cec008e129a",
+        "type": "inject",
+        "z": "928e8df5cd17bf46",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 580,
+        "wires": [
+            [
+                "07c64c5e5678fa09"
+            ]
+        ]
+    },
+    {
+        "id": "07c64c5e5678fa09",
+        "type": "change",
+        "z": "928e8df5cd17bf46",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "value",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 580,
         "wires": [
             []
         ]
