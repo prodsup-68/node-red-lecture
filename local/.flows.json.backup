@@ -64,6 +64,14 @@
         "env": []
     },
     {
+        "id": "67063a92c5c848d6",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "5c9e88e1c9ecf3cb",
         "type": "ui-base",
         "name": "My Dashboard",
@@ -378,6 +386,37 @@
         "visible": "true",
         "disabled": "false",
         "groupType": "default"
+    },
+    {
+        "id": "c6c51e2e39c85e9c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "iecmu.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
     },
     {
         "id": "8c9934495ffb4ec2",
@@ -1127,7 +1166,7 @@
         "finalize": "",
         "libs": [],
         "x": 350,
-        "y": 200,
+        "y": 240,
         "wires": [
             [
                 "0d0187272fdc6817"
@@ -1156,7 +1195,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 170,
-        "y": 200,
+        "y": 240,
         "wires": [
             [
                 "bd39c47bf01705a7"
@@ -1185,7 +1224,7 @@
         "action": "replace",
         "className": "",
         "x": 510,
-        "y": 200,
+        "y": 240,
         "wires": [
             [
                 "6af1cffd176350f6"
@@ -1212,7 +1251,7 @@
         "to": "",
         "reg": false,
         "x": 730,
-        "y": 200,
+        "y": 240,
         "wires": [
             []
         ]
@@ -1238,7 +1277,7 @@
         "value": "current_sensor",
         "valueType": "flow",
         "x": 360,
-        "y": 300,
+        "y": 360,
         "wires": []
     },
     {
@@ -1252,7 +1291,7 @@
         ],
         "uncaught": false,
         "x": 150,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "7e48b6cea0a47e79"
@@ -1312,6 +1351,36 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "f12dd1d3158fd3fd",
+        "type": "comment",
+        "z": "32370fea674c5310",
+        "name": "Initialize Context",
+        "info": "",
+        "x": 160,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "6bac76d6d8dbea40",
+        "type": "comment",
+        "z": "32370fea674c5310",
+        "name": "Table",
+        "info": "",
+        "x": 130,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "287d83767a7b9ba1",
+        "type": "comment",
+        "z": "32370fea674c5310",
+        "name": "Text",
+        "info": "",
+        "x": 130,
+        "y": 320,
+        "wires": []
     },
     {
         "id": "319fa7a0168fc913",
@@ -2561,5 +2630,42 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "27ab14b003a16e4f",
+        "type": "mqtt in",
+        "z": "67063a92c5c848d6",
+        "name": "",
+        "topic": "Light5/Value",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c6c51e2e39c85e9c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 450,
+        "y": 260,
+        "wires": [
+            [
+                "98055a9354e1fe7c"
+            ]
+        ]
+    },
+    {
+        "id": "98055a9354e1fe7c",
+        "type": "debug",
+        "z": "67063a92c5c848d6",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 260,
+        "wires": []
     }
 ]

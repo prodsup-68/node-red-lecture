@@ -64,6 +64,14 @@
         "env": []
     },
     {
+        "id": "67063a92c5c848d6",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "5c9e88e1c9ecf3cb",
         "type": "ui-base",
         "name": "My Dashboard",
@@ -378,6 +386,37 @@
         "visible": "true",
         "disabled": "false",
         "groupType": "default"
+    },
+    {
+        "id": "c6c51e2e39c85e9c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "iecmu.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
     },
     {
         "id": "8c9934495ffb4ec2",
@@ -2590,6 +2629,119 @@
         "y": 440,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "27ab14b003a16e4f",
+        "type": "mqtt in",
+        "z": "67063a92c5c848d6",
+        "name": "",
+        "topic": "Light5/Value",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c6c51e2e39c85e9c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 450,
+        "y": 260,
+        "wires": [
+            [
+                "98055a9354e1fe7c"
+            ]
+        ]
+    },
+    {
+        "id": "98055a9354e1fe7c",
+        "type": "debug",
+        "z": "67063a92c5c848d6",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "21f78652b5efae7d",
+        "type": "mqtt out",
+        "z": "67063a92c5c848d6",
+        "name": "",
+        "topic": "Light5/led",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c6c51e2e39c85e9c",
+        "x": 760,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "73dcaf8f333731f2",
+        "type": "inject",
+        "z": "67063a92c5c848d6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "on",
+        "payloadType": "str",
+        "x": 430,
+        "y": 360,
+        "wires": [
+            [
+                "21f78652b5efae7d"
+            ]
+        ]
+    },
+    {
+        "id": "cc03da711e373522",
+        "type": "inject",
+        "z": "67063a92c5c848d6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "off",
+        "payloadType": "str",
+        "x": 430,
+        "y": 440,
+        "wires": [
+            [
+                "21f78652b5efae7d"
+            ]
         ]
     }
 ]
