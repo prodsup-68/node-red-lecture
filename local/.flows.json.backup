@@ -2794,7 +2794,7 @@
         "topic": "",
         "payload": "img/dog.jpg",
         "payloadType": "str",
-        "x": 150,
+        "x": 290,
         "y": 260,
         "wires": [
             [
@@ -2811,8 +2811,8 @@
         "data": "payload",
         "dataType": "msg",
         "active": true,
-        "x": 610,
-        "y": 240,
+        "x": 730,
+        "y": 260,
         "wires": [
             []
         ]
@@ -2851,7 +2851,7 @@
             "description": "Just loads the image.",
             "parameters": []
         },
-        "x": 370,
+        "x": 490,
         "y": 260,
         "wires": [
             [
@@ -2886,7 +2886,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 640,
+        "x": 760,
         "y": 380,
         "wires": [
             [
@@ -2947,7 +2947,7 @@
                 }
             ]
         },
-        "x": 870,
+        "x": 970,
         "y": 380,
         "wires": [
             [
@@ -2965,7 +2965,7 @@
         "data": "payload",
         "dataType": "msg",
         "active": true,
-        "x": 1090,
+        "x": 1130,
         "y": 240,
         "wires": [
             []
@@ -3024,7 +3024,7 @@
         "links": [
             "3a1068fd03108b85"
         ],
-        "x": 1015,
+        "x": 1135,
         "y": 380,
         "wires": []
     },
@@ -3103,7 +3103,7 @@
         "imageWidth": 640,
         "imageHeight": 480,
         "imageQuality": 0.8,
-        "x": 150,
+        "x": 290,
         "y": 380,
         "wires": [
             [
@@ -3130,7 +3130,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
+        "x": 500,
         "y": 380,
         "wires": [
             [
@@ -3271,6 +3271,35 @@
         "y": 720,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "0bbeb45fb81415cf",
+        "type": "inject",
+        "z": "f2098c6bbfd28051",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "capture",
+        "payloadType": "str",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "1938792d8ab473cf"
+            ]
         ]
     }
 ]
