@@ -4,6 +4,6 @@
     "version": "0.0.1",
     "private": true,
     "dependencies": {
-        "@sumit_shinde_84/node-red-dashboard-2-ui-webcam": "^1.1.2"
+        "@sumit_shinde_84/node-red-dashboard-2-ui-webcam": "~1.1.2"
     }
 }

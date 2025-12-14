@@ -839,43 +839,5 @@
                 "file": "C:\\Users\\admin\\Coding\\prodsup-68\\node-red-lecture\\node_modules\\node-red-contrib-image-tools\\app.js"
             }
         }
-    },
-    "@sumit_shinde_84/node-red-dashboard-2-ui-webcam": {
-        "name": "@sumit_shinde_84/node-red-dashboard-2-ui-webcam",
-        "version": "1.1.2",
-        "local": true,
-        "user": true,
-        "nodes": {
-            "ui-webcam": {
-                "name": "ui-webcam",
-                "types": [
-                    "ui-webcam"
-                ],
-                "enabled": true,
-                "local": true,
-                "user": false,
-                "module": "@sumit_shinde_84/node-red-dashboard-2-ui-webcam",
-                "file": "C:\\Users\\admin\\Coding\\prodsup-68\\node-red-lecture\\local\\node_modules\\@sumit_shinde_84\\node-red-dashboard-2-ui-webcam\\nodes\\ui-webcam.js"
-            }
-        }
-    },
-    "node-red-contrib-send-multipart-formdata": {
-        "name": "node-red-contrib-send-multipart-formdata",
-        "version": "1.1.0",
-        "local": false,
-        "user": false,
-        "nodes": {
-            "http-send-multipart-formdata": {
-                "name": "http-send-multipart-formdata",
-                "types": [
-                    "http-send-multipart-formdata"
-                ],
-                "enabled": true,
-                "local": false,
-                "user": false,
-                "module": "node-red-contrib-send-multipart-formdata",
-                "file": "C:\\Users\\admin\\Coding\\prodsup-68\\node-red-lecture\\node_modules\\node-red-contrib-send-multipart-formdata\\http-send-multipart-formdata.js"
-            }
-        }
     }
 }
